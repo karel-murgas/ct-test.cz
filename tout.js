@@ -58,9 +58,10 @@
     src += '&firstTime=' + firstTime;
     src += '&fpBlocked=' + fpBlocked;
     src += '&gaBlocked=' + gaBlocked;
-    src += '&gtmBlocked=' + uuid;
+    src += '&gtmBlocked=' + gtmBlocked;
     src += '&jsBlocked=' + false;
     img.src = src;
+    tout._debug(src);
   }
   
   /**
