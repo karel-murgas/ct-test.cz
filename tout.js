@@ -1,5 +1,5 @@
 (function(window) {
-  window.measure = function() {
+  window.tout = function() {
     var uuidCookie,
         uuid,
         firstTime,
@@ -7,26 +7,26 @@
         gaBlocked,
         gtmBlocked;
     
-    uuidCookie = window.measure.getCookie('tout_fp_uuid');
+    uuidCookie = window.tout.getCookie('tout_fp_uuid');
     
     if (typeof uuidCookie !== 'undefined') {
       uuid = uuidCookie;
       firstTime = false;
     } else {
-      uuid = window.measure._generateUuid();
+      uuid = window.tout._generateUuid();
       firstTime = true;
     }
 
-    window.measure.setCookie('tout_fp_uuid', uuid, 1825);
-    measure._debug('UUID: ' + uuid);
+    window.tout.setCookie('tout_fp_uuid', uuid, 1825);
+    tout._debug('UUID: ' + uuid);
     
-    window.measure.setCookie('tout_fp_test', 'OK');
-    fpBlocked = (typeof window.measure.getCookie('tout_fp_test') === 'undefined');
+    window.tout.setCookie('tout_fp_test', 'OK');
+    fpBlocked = (typeof window.tout.getCookie('tout_fp_test') === 'undefined');
     
     gaBlocked = !(window.ga && ga.create)
 		gtmBlocked = !(window.google_tag_manager)
 
-    window.measure._track(uuid, firstTime, fpBlocked, gaBlocked, gtmBlocked);
+    window.tout._track(uuid, firstTime, fpBlocked, gaBlocked, gtmBlocked);
   };
   
   /**
@@ -34,7 +34,7 @@
    * @type {Function}
    * @private
    */
-  window.measure._generateUuid = function () {
+  window.tout._generateUuid = function () {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
       return v.toString(16);
@@ -46,7 +46,7 @@
    * @type {Function}
    * @private
    */
-  window.measure._track = function (uuid, firstTime, fpBlocked, gaBlocked, gtmBlocked) {
+  window.tout._track = function (uuid, firstTime, fpBlocked, gaBlocked, gtmBlocked) {
     var img,
         src;
         
@@ -68,7 +68,7 @@
    * @type {Function}
    * @private
    */
-  window.measure._debug = (function () {
+  window.tout._debug = (function () {
     var result;
     if (! window.console || ! console.log) {
       result = function(){};
@@ -84,7 +84,7 @@
    * @public
    * @param name {String}
    */
-  window.measure.getCookie = function(name) {
+  window.tout.getCookie = function(name) {
     var ca;
     ca = document.cookie.split(';');
     name = name + '=';
@@ -108,7 +108,7 @@
    * @param value {String}
    * @param days {Number}
    */
-  window.measure.setCookie = function(name, value, days) {
+  window.tout.setCookie = function(name, value, days) {
     var date,
       expires;
 
@@ -122,6 +122,6 @@
     document.cookie = name + '=' + value + '; ' + expires + '; path=/';
   };
   
-  window.addEventListener('load', measure, false);
+  window.addEventListener('load', tout, false);
   
 })(window);
