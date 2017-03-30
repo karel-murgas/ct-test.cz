@@ -18,11 +18,10 @@
     }
 
     window.tout.setCookie('tout_fp_uuid', uuid, 1825);
-    tout._debug('UUID: ' + uuid);
     
     window.tout.setCookie('tout_fp_test', 'OK');
     fpBlocked = (typeof window.tout.getCookie('tout_fp_test') === 'undefined');
-    
+
     gaBlocked = !(window.ga && ga.create)
 		gtmBlocked = !(window.google_tag_manager)
 
