@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<POLICY xmlns="http://www.w3.org/2000/12/P3Pv1" discuri="https://www.kb.cz/cs/podminky-pouzivani-internetovych-stranek/">
+    
+   <DATASCHEMA>
+       <DATA-DEF name="Unique Visitor ID" structref="#text" short-description="vid">
+           <LONG-DESCRIPTION>General data on visitors to site and their site usage.</LONG-DESCRIPTION>
+       </DATA-DEF>
+   </DATASCHEMA>
+										    
+   <ENTITY>
+	    <DATA-GROUP>
+            <DATA ref="#business.name">Komerční banka, a. s.</DATA>
+            <DATA ref="#business.contact-info.online.email">mojebanka@kb.cz</DATA>
+            <DATA ref="#business.contact-info.online.uri">https://www.kb.cz/</DATA>
+            <DATA ref="#business.contact-info.telecom.telephone.number">+420800521521</DATA>
+            <DATA ref="#business.contact-info.postal.street">Na Příkopě 33</DATA>
+            <DATA ref="#business.contact-info.postal.city">Praha 1</DATA>
+            <DATA ref="#business.contact-info.postal.postalcode">114 07</DATA>
+            <DATA ref="#business.contact-info.postal.country">Czech Republic</DATA>
+	    </DATA-GROUP>
+   </ENTITY>
+
+   <ACCESS><nonident/></ACCESS>
+																	    
+   <DISPUTES-GROUP>
+       <DISPUTES resolution-type="service" service="https://www.kb.cz/cs/podminky-pouzivani-internetovych-stranek/" short-description="Privacy Policy Statement">
+           <LONG-DESCRIPTION>Read our Privacy Policy Statement.</LONG-DESCRIPTION>
+           <REMEDIES><correct/></REMEDIES>
+       </DISPUTES>
+   </DISPUTES-GROUP>
+																														    
+   <STATEMENT>
+       <EXTENSION optional="yes">
+	       <GROUP-INFO name="VisitorAPI"/>
+       </EXTENSION>
+	   
+	   <NON-IDENTIFIABLE/>
+	   <PURPOSE><pseudo-analysis/></PURPOSE>
+	   <RECIPIENT><ours/></RECIPIENT>
+	   <RETENTION><indefinitely/></RETENTION>
+
+	   <DATA-GROUP>
+		   <DATA ref="#dynamic.cookies">
+		        <CATEGORIES><state/><navigation/><computer/></CATEGORIES>
+		   </DATA>
+	   </DATA-GROUP>
+   </STATEMENT>
+</POLICY>
