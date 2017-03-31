@@ -122,6 +122,6 @@
     document.cookie = name + '=' + value + '; ' + expires + '; path=/';
   };
   
-  window.addEventListener('load', tout, false);
+  window.addEventListener('load', function(){setTimeout(tout,1000);}, false);
   
 })(window);
